@@ -2,10 +2,10 @@
 
 # Just a basic script U can improvise lateron asper ur need xD 
 
-MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-10.0-deprecated"
-DEVICE=NOTE_20_PRO
-DT_LINK="https://github.com/mastersenpai0405/android_device_cubot_NOTE_20_PRO"
-DT_PATH=device/cubot/$DEVICE
+MANIFEST="https://github.com/PitchBlackRecoveryProject/manifest_pb -b android-11.0"
+DEVICE=olive
+DT_LINK="https://github.com/Jprimero15/recovery_device_xiaomi_olive -b pbrp"
+DT_PATH=device/xiaomi/$DEVICE
 
 echo " ===+++ Setting up Build Environment +++==="
 apt install openssh-server -y
@@ -32,6 +32,6 @@ cd out/target/product/$DEVICE
 mv recovery.img ${OUTFILE%.zip}.img
 zip -r9 $OUTFILE ${OUTFILE%.zip}.img
 
-#curl -T $OUTFILE https://oshi.at
+curl -T $OUTFILE https://oshi.at
 curl -sL $OUTFILE https://git.io/file-transfer | sh
 ./transfer wet *.zip
