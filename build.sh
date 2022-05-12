@@ -2,10 +2,10 @@
 
 # Just a basic script U can improvise lateron asper ur need xD 
 
-MANIFEST="https://github.com/PitchBlackRecoveryProject/manifest_pb -b android-11.0"
-DEVICE=olive
-DT_LINK="https://github.com/Jprimero15/recovery_device_xiaomi_olive -b pbrp"
-DT_PATH=device/xiaomi/$DEVICE
+MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11"
+DEVICE=X6812
+DT_LINK="https://github.com/Jprimero15/device_infinix_X6812"
+DT_PATH=device/infinix/$DEVICE
 
 echo " ===+++ Setting up Build Environment +++==="
 apt install openssh-server -y
@@ -21,7 +21,7 @@ git clone $DT_LINK $DT_PATH
 echo " ===+++ Building Recovery +++==="
 . build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
-lunch omni_${DEVICE}-eng && mka recoveryimage
+lunch twrp_${DEVICE}-eng && mka bootimage
 
 # Upload zips & recovery.img
 echo " ===+++ Uploading Recovery +++==="
